@@ -1,22 +1,4 @@
-class Game {
-  constructor(numberOfRows, numberOfColumns, numberOfBombs){
-    this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
-  }
-  playMove(rowIndex, columnIndex){
-    this._board.flipTile(rowIndex, columnIndex)
-    if (this._board.playerBoard[rowIndex][columnIndex] == 'B'){
-      console.log("Aww the game over. Final board:")
-      this._board.print();
-    } else if (!this._board.hasSafeTiles()){
-      console.log("Congratulations! You cleared the minefield!")
-    } else {
-      console.log('Current Board:')
-      this._board.print();
-    }
-  }
-}
-
-class Board {
+export class Board {
   constructor(numberOfRows, numberOfColumns, numberOfBombs){
     this._numberOfRows = numberOfRows;
     this._numberOfColumns = numberOfColumns,
@@ -108,27 +90,3 @@ class Board {
     return board;
   }
 }
-
-
-
-
-
-
-
-
-/*
-
-let playerBoard = generatePlayerBoard(3, 3);
-let bombBoard = generateBombBoard(3, 3, 3);
-
-console.log('Player Board:');
-printBoard(playerBoard);
-console.log('Bomb Board:')
-printBoard(bombBoard);
-
-flipTile(playerBoard, bombBoard, 0, 0);
-console.log('Updated Player Board:')
-printBoard(playerBoard);
-*/
-const game = new Game(3,3,3);
-game.playMove(0,0);
